@@ -1,0 +1,43 @@
+GET http://localhost:3000/products/
+
+
+###
+GET http://localhost:3000/products/2
+
+###
+POST http://localhost:3000/products/
+content-type: application/json
+
+{
+  "input_name": "Rainer",
+  "input_price": 4,
+  "input_url": "https://unsplash.com/photos/3ORoQEJY9LA",
+  "input_description": "nice cheap great lager"
+}
+
+
+###
+DELETE http://localhost:3000/products/16
+
+
+###
+PATCH http://localhost:3000/products/8
+content-type: application/json
+
+{
+  "new_name": "coors",
+  "new_price": 4,
+  "new_url": "beer.com",
+  "new_description": "watery cheap beer"
+}
+
+###
+PATCH http://localhost:3000/products/5
+content-type: application/json
+
+{
+  "new_name": "Ninkasi",
+  "new_price": 8,
+  "new_url": "beer.com",
+  "new_description": "great hoppy dark ipa"
+}
