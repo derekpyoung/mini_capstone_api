@@ -17,18 +17,16 @@ content-type: application/json
 
 
 ###
-DELETE http://localhost:3000/products/16
+DELETE http://localhost:3000/products/18
 
 
 ###
-PATCH http://localhost:3000/products/8
+PATCH http://localhost:3000/products/15
 content-type: application/json
 
 {
-  "new_name": "coors",
-  "new_price": 4,
-  "new_url": "beer.com",
-  "new_description": "watery cheap beer"
+  "new_name": "Rainier"
+ 
 }
 
 ###
