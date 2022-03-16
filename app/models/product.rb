@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   end 
 
   def is_discounted? 
-    price < 10
+    price < 6
   end 
 
   def tax 
