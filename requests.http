@@ -5,7 +5,7 @@ GET http://localhost:3000/products.json
 
 #show
 ###
-GET http://localhost:3000/products/2.json
+GET http://localhost:3000/products/3.json
 
 #create
 ###
@@ -13,30 +13,30 @@ POST http://localhost:3000/products.json
 content-type: application/json
 
 {
-  "input_name": "Rainer",
-  "input_price": 4,
-  "input_url": "https://unsplash.com/photos/3ORoQEJY9LA",
-  "input_description": "nice cheap great lager"
+  "input_name": "Corona",
+  "input_price": 2,
+  "input_description": "mexican american style lager"
 }
 
 #delete
 ###
-DELETE http://localhost:3000/products/8.json
+DELETE http://localhost:3000/products/23.json
 
 
-#update not working
+#update
 ###
 PATCH http://localhost:3000/products/15.json
 content-type: application/json
 
 {
-  "new_name": "Rainier"
+  "new_name": "Rainier",
+  "new_price": 3
  
 }
 
 #update
 ###
-PATCH http://localhost:3000/products/5
+PATCH http://localhost:3000/products/5.json
 content-type: application/json
 
 {
@@ -45,3 +45,44 @@ content-type: application/json
   "new_url": "beer.com",
   "new_description": "great hoppy dark ipa"
 }
+
+####-_------------------------Suppliers__________----------------__----__---_---__----
+
+#index
+GET http://localhost:3000/suppliers.json
+
+#show
+###
+GET http://localhost:3000/suppliers/3.json
+
+#_________________________________________
+
+#images
+###
+POST http://localhost:3000/images.json
+content-type: application/json
+
+{
+  "url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.SI2IZDEwxJLK1S2l_GkFUwHaHa%26pid%3DApi&f=1",
+
+  "product_id": 7
+}
+
+
+
+
+
+
+
+
+#1. In your mini-capstone, add a new model called Supplier. It should have the attributes: name, email, and phone_number (all are strings).
+# 2. Use the rails console or seeds file to add 2 or 3 suppliers to your database.
+
+
+# 3. Then, add a migration to add supplier_id (which must be an integer) to your products table.
+
+
+# 4. Use the rails console or Postico to associate products with suppliers by updating the empty supplier_id data.
+
+
+# 5. Bonus: Create routes and a controller for your Supplier model, so a user can CRUD a supplier.
