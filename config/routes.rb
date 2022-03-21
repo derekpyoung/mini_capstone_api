@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "/suppliers", to: "suppliers#index"
   get "/suppliers/:id", to: "suppliers#show"
   post "/images", to: "images#create"
+  post "/users", to: "users#create"
+  post "/sessions", to: "sessions#create"
 
  
 end

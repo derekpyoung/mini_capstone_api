@@ -15,7 +15,11 @@ content-type: application/json
 {
   "input_name": "Corona",
   "input_price": 2,
-  "input_description": "mexican american style lager"
+  "input_description": "mexican american style lager",
+  "input_inventory" : 99,
+  "input_images" : [
+    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.pKnPQFE7c__WtDWh18ml1wAAAA%26pid%3DApi&f=1", "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ZQf2rHaVae8Aa_GpnndGCAEsCo%26pid%3DApi&f=1"
+  ]
 }
 
 #delete
@@ -68,21 +72,28 @@ content-type: application/json
   "product_id": 7
 }
 
+#------------------USERS--------------------------------
+#users create
+###
+POST http://localhost:3000/users.json 
+content-type: application/json
+
+{
+  "name": "derek",
+  "email": "derek@email.com",
+  "password": "password",
+  "password_confirmation":"password"
+}
+
+#sessions
+###
+POST http://localhost:3000/sessions 
+content-type: application/json
+
+{
+  "email": "bob@email.com",
+  "password": "password"
+}
 
 
 
-
-
-
-
-#1. In your mini-capstone, add a new model called Supplier. It should have the attributes: name, email, and phone_number (all are strings).
-# 2. Use the rails console or seeds file to add 2 or 3 suppliers to your database.
-
-
-# 3. Then, add a migration to add supplier_id (which must be an integer) to your products table.
-
-
-# 4. Use the rails console or Postico to associate products with suppliers by updating the empty supplier_id data.
-
-
-# 5. Bonus: Create routes and a controller for your Supplier model, so a user can CRUD a supplier.

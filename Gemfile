@@ -16,6 +16,8 @@ gem "tty-table"
 gem "rack-cors"
 gem 'jb'
 gem 'seed_dump'
+gem 'bcrypt', '~>3.1.7'
+gem 'jwt'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
