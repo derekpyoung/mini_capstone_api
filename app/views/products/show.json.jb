@@ -7,6 +7,7 @@
   description: @product.description,
   is_discounted?: @product.is_discounted?,
   inventory: @product.inventory,
+  images: @product.image,
   supplier_id: @product.supplier_id,
   supplier: @product.supplier,
   created_at: @product.readable_created_at,

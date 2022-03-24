@@ -14,8 +14,13 @@ Rails.application.routes.draw do
   post "/images", to: "images#create"
   post "/users", to: "users#create"
   post "/sessions", to: "sessions#create"
+  post "/orders", to: "orders#create"
+  get "/orders/:id", to: "orders#show"
+  get "/orders", to: "orders#index"
 
  
 end
+
+
 
 

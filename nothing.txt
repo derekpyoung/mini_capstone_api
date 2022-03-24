@@ -1,0 +1,77 @@
+*After everyone agrees the solution to the simpler problem is correct, one person should type it into your text editor and verify that it works!*
+
+
+
+Write a function that takes in two strings and returns the longest common substring.
+
+
+def  longest(str1,str2)
+ split1 = str1.split 
+ split2 = str2.split
+ new = []
+i = 0
+j = 0 
+while j < split1.length do 
+  while i < split2.length do 
+    split1[i], split1[i+=1] == split2[i],split2[i+=1]
+    new << split1[i], split1[i+=1]
+    i += 1
+  end 
+  j+=1
+  p new 
+end 
+longest("firetruck","truck")
+
+
+
+
+
+Write a function that takes in an array of numbers and returns a new array of the same numbers without any duplicates.
+
+
+
+
+
+Write a function that takes in an array of numbers and returns the largest product of any two numbers in the array.
+
+arr = [1,2,3,4,5,6,7]
+
+def return_largest_sum(arr)
+  sorted = arr.sort
+  last_index = arr.length -1
+  a = sorted[last_index] * sorted[last_index -1]
+  return a 
+end 
+
+
+Write a function that takes in an array of numbers and returns a new array with the same numbers, with all the zeros moved to the end of the array.
+
+
+Write a function that takes in an array of words and returns the word that appeared the most times in the array.
+
+
+Write a function that takes in an array of numbers and returns all the pairs that add up to 10.
+
+
+Write a function that takes in two arguments, an array of sorted numbers and a number to find, and uses binary search to return the index of the number to find in the array.
+
+
+Write a function that takes in an array of numbers, where every number shows up twice except for one, and returns the number that only shows up once.
+
+
+Write a function that takes in an array of strings and returns all the strings that show up 3 or more times.
+Write a function that takes in an array of numbers and returns the first number that shows up more than once.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

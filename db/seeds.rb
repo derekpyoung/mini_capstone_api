@@ -23,3 +23,4 @@ products.each do |product|
   product.inventory = rand(10..120)
   product.save 
 end 
+

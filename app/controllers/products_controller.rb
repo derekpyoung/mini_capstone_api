@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:show, :index]
 
   def show
     id = params[:id].to_i
@@ -13,7 +14,7 @@ class ProductsController < ApplicationController
   end 
   
   def create 
-    @product = Product.new(name: params[:input_name], price: params[:input_price], description: params[:input_description], inventory: params[:input_inventory])
+    @product = Product.new(name: params[:input_name], price: params[:input_price], description: params[:input_description], inventory: params[:input_inventory], supplier_id: params[:input_supplier_id])
     if @product.save
     render template: "products/show"
     else 

@@ -22,3 +22,20 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Shopping-
+product_id
+user_id
+subtotal
+tax
+total
+
+steps 
+1. set up table with product id user id subtotal tax total 
+2. generate model 
+3. create post route 
+4. make all data readable.
+4. pull product id user id subtotal tax and total from tables. (image?)
+5. add to new table 
+6. return product id user id subtotal tax and total. 

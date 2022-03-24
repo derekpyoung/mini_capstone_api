@@ -1,6 +1,9 @@
 
+
+#PRODUCTS _________________________________________________________
 #index
 GET http://localhost:3000/products.json
+
 
 
 #show
@@ -10,13 +13,15 @@ GET http://localhost:3000/products/3.json
 #create
 ###
 POST http://localhost:3000/products.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgxNDIyMTd9.XGjoGr2tdAI7OWnXgicU5FbZmycucLDkMRsN5L1KIxg
 content-type: application/json
 
 {
-  "input_name": "Corona",
+  "input_name": "beer",
   "input_price": 2,
   "input_description": "mexican american style lager",
   "input_inventory" : 99,
+  "input_supplier_id": 2,
   "input_images" : [
     "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.pKnPQFE7c__WtDWh18ml1wAAAA%26pid%3DApi&f=1", "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ZQf2rHaVae8Aa_GpnndGCAEsCo%26pid%3DApi&f=1"
   ]
@@ -24,17 +29,19 @@ content-type: application/json
 
 #delete
 ###
-DELETE http://localhost:3000/products/23.json
+DELETE http://localhost:3000/products/29.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgxNDIyMTd9.XGjoGr2tdAI7OWnXgicU5FbZmycucLDkMRsN5L1KIxg
 
 
 #update
 ###
 PATCH http://localhost:3000/products/15.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgxNDIyMTd9.XGjoGr2tdAI7OWnXgicU5FbZmycucLDkMRsN5L1KIxg
 content-type: application/json
 
 {
   "new_name": "Rainier",
-  "new_price": 3
+  "new_price": 2
  
 }
 
@@ -50,7 +57,7 @@ content-type: application/json
   "new_description": "great hoppy dark ipa"
 }
 
-####-_------------------------Suppliers__________----------------__----__---_---__----
+####-_------------------------Suppliers__________---------------
 
 #index
 GET http://localhost:3000/suppliers.json
@@ -59,9 +66,9 @@ GET http://localhost:3000/suppliers.json
 ###
 GET http://localhost:3000/suppliers/3.json
 
-#_________________________________________
+#_____________images____________________________
 
-#images
+#images index 
 ###
 POST http://localhost:3000/images.json
 content-type: application/json
@@ -79,13 +86,16 @@ POST http://localhost:3000/users.json
 content-type: application/json
 
 {
-  "name": "derek",
-  "email": "derek@email.com",
+  "name": "jim",
+  "email": "jim@email.com",
   "password": "password",
   "password_confirmation":"password"
 }
 
+
+#------------------------SESSIONS----------------------
 #sessions
+#admin
 ###
 POST http://localhost:3000/sessions 
 content-type: application/json
@@ -95,5 +105,37 @@ content-type: application/json
   "password": "password"
 }
 
+#sessions not admin 
+###
+POST http://localhost:3000/sessions.json 
+Content-Type: application/json
+
+{
+  "email": "derek@email.com",
+  "password": "password"
+}
 
 
+
+#-----------------------ORDERS-----------------
+
+###
+POST http://localhost:3000/orders.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDgwNzE1NjR9.Va-YLPc0V1F_S1hAQmspi6SB8AaDW3Dpx1Ii7b6ICVU
+content-type: application/json
+
+{
+  "product_id": 5,
+  "quantity": 30
+}
+
+
+#show
+###
+GET http://localhost:3000/orders/16
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NDgwNzAwMDJ9.AomQmOtqx0OJFIdBble5TKAHLCZyHyJkIdcj2rGZuUA
+
+#index 
+###
+GET http://localhost:3000/orders.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDgwNzE1NjR9.Va-YLPc0V1F_S1hAQmspi6SB8AaDW3Dpx1Ii7b6ICVU
