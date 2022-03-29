@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_admin, except: [:show, :index]
-
+  before_action :authenticate_admin, only: [:update, :create, :destroy]
+  #belongs_to :orders
   def show
     id = params[:id].to_i
     @product = Product.find_by(id: id)
@@ -14,36 +14,43 @@ class ProductsController < ApplicationController
   end 
   
   def create 
-    @product = Product.new(name: params[:input_name], price: params[:input_price], description: params[:input_description], inventory: params[:input_inventory], supplier_id: params[:input_supplier_id])
-    if @product.save
-    render template: "products/show"
+    product = Product.new(name: params[:name], 
+                          price: params[:price],
+                          description: params[:description],
+                          quantity: params[:quantity], 
+                          supplier_id: params[:supplier_id])
+    if product.save
+      params[:images].each do |image|
+        image = Image.new(url: image, product_id: product.id)
+        image.save 
+      end 
+      render json: product.as_json
     else 
-    render json: {
-      errors: @product.errors.full_messages
-    }
+      render json: {errors: product.errors.full_messages}, status: :unprocessable_entity
     end 
-
   end 
 
   def destroy 
     id = params[:id]
-    @product = Product.find_by(id: id)
-    render json: @product.as_json
-    @product.delete
+    product = Product.find_by(id: id)
+    product.delete
+    render json: {message: "product removed."}
+ 
   end 
 
   def update 
     id = params[:id]
-    @product = Product.find_by(id: id)
-    @product.name = params[:new_name] || @product.name
-    @product.price = params[:new_price] || @product.price
-    @product.description = params[:new_description] || @product.description
+    product = Product.find_by(id: id)
+    product.name = params[:new_name]
+    product.price = params[:new_price] 
+    product.description = params[:new_description]
+
     
-    if @product.save 
-      render json: @product.as_json 
+    if product.save 
+      render json: product.as_json 
     else 
       render json: {
-        error: @product.errors.full_messages
+        error: product.errors.full_messages
       }
     end 
     

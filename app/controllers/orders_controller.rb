@@ -1,52 +1,45 @@
 class OrdersController < ApplicationController
-  
-  def create 
-    product = Product.find_by(id: params[:product_id])
-    calculate_sub = params[:quantity] * product.price
-    tax = product.price * 0.09 * params[:quantity].to_i
-    total = calculate_sub.to_i + tax.to_i
-    
-    order = Order.new(
-        product_id: params[:product_id],
-        user_id: current_user.id,
-        subtotal: calculate_sub,
-        quantity: params[:quantity],
-        tax: tax,
-        total: total
-      )
-    order.save 
-    if order.user_id == current_user.id
-      render json: order
-    else 
-      render json: "nope"
-    end 
-  end 
+  before_action :authenticate_user
 
-  def show 
-    order_id = params[:id]
-    order = Order.find_by(id: order_id)
-    if order.user_id == current_user.id
+  def create
+    carted_products = current_user.carted_products.where(status: "carted")
+    calculated_subtotal = 0
+    calculated_tax = 0
+    carted_products.each do |item|
+      calculated_subtotal += item.product.price * item.quantity
+      calculated_tax += item.product.tax * item.quantity
+    end
+    order = Order.new(
+      user_id: current_user.id,
+      subtotal: calculated_subtotal,
+      tax: calculated_tax,
+      total: calculated_subtotal + calculated_tax
+    )
+    order.save
+    carted_products.each do |item|
+      item.update(
+        status: "purchased",
+        order_id: order.id
+      )
+    end
+    render json: order
+  end
+  
+
+  def show
+    @order = Order.find_by(id: params[:id])
+    if @order.user_id == current_user.id
+      render template: "orders/show"
+    else
       render json: {
-      order: order.as_json
+        order: "CANT show ORDER"
       }
-    else 
-      render json: {
-      message: "nope!"
-      }
-    end 
-  end 
+    end
+  end
 
   def index 
-    show_orders = []
-    orders = Order.all
-    orders.each do |order|
-      if order.user_id == current_user.id
-        show_orders << order
-      end 
-    end 
-    render json: {
-      orders: show_orders
-    }
+    @orders = current_user.orders
+    render template: "orders/index"
   end 
 
 end

@@ -8,41 +8,41 @@ GET http://localhost:3000/products.json
 
 #show
 ###
-GET http://localhost:3000/products/3.json
+GET http://localhost:3000/products/15.json
 
 #create
 ###
 POST http://localhost:3000/products.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgxNDIyMTd9.XGjoGr2tdAI7OWnXgicU5FbZmycucLDkMRsN5L1KIxg
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTA1ODA0OTV9.Nqj15bzsdcUk3e0OpRYXGtNRgdjh0zvw3E-zG5QEV2w
 content-type: application/json
 
 {
-  "input_name": "beer",
-  "input_price": 2,
-  "input_description": "mexican american style lager",
-  "input_inventory" : 99,
-  "input_supplier_id": 2,
-  "input_images" : [
+  "name": "IPA",
+  "price": 12,
+  "description": "HEAVY IPA",
+  "quantity" : 45,
+  "supplier_id": 2,
+  "images" : [
     "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.pKnPQFE7c__WtDWh18ml1wAAAA%26pid%3DApi&f=1", "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ZQf2rHaVae8Aa_GpnndGCAEsCo%26pid%3DApi&f=1"
   ]
 }
 
 #delete
 ###
-DELETE http://localhost:3000/products/29.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgxNDIyMTd9.XGjoGr2tdAI7OWnXgicU5FbZmycucLDkMRsN5L1KIxg
+DELETE http://localhost:3000/products/30.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTA1ODEyODB9.Wf2EiV9i8lTX0iZNtvEAx4k0HdY_A2MpD3iRDCXCxJo
 
 
 #update
 ###
-PATCH http://localhost:3000/products/15.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgxNDIyMTd9.XGjoGr2tdAI7OWnXgicU5FbZmycucLDkMRsN5L1KIxg
+PATCH http://localhost:3000/products/31.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTA1ODEyODB9.Wf2EiV9i8lTX0iZNtvEAx4k0HdY_A2MpD3iRDCXCxJo
 content-type: application/json
 
 {
-  "new_name": "Rainier",
-  "new_price": 2
- 
+  "new_name": "Racer 5",
+  "new_price": 5,
+  "new_description": "a good cali ipa"
 }
 
 #update
@@ -86,8 +86,8 @@ POST http://localhost:3000/users.json
 content-type: application/json
 
 {
-  "name": "jim",
-  "email": "jim@email.com",
+  "name": "john",
+  "email": "john@email.com",
   "password": "password",
   "password_confirmation":"password"
 }
@@ -101,7 +101,7 @@ POST http://localhost:3000/sessions
 content-type: application/json
 
 {
-  "email": "bob@email.com",
+  "email": "john@email.com",
   "password": "password"
 }
 
@@ -111,7 +111,7 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "derek@email.com",
+  "email": "bob@email.com",
   "password": "password"
 }
 
@@ -119,23 +119,36 @@ Content-Type: application/json
 
 #-----------------------ORDERS-----------------
 
+#create
 ###
 POST http://localhost:3000/orders.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDgwNzE1NjR9.Va-YLPc0V1F_S1hAQmspi6SB8AaDW3Dpx1Ii7b6ICVU
-content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA2NjQ0MTN9.z_Ims7fbTT-lAc-dn6ra0-hMuPLuuvg6KRgeQZsp3sU
 
-{
-  "product_id": 5,
-  "quantity": 30
-}
+
 
 
 #show
 ###
-GET http://localhost:3000/orders/16
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NDgwNzAwMDJ9.AomQmOtqx0OJFIdBble5TKAHLCZyHyJkIdcj2rGZuUA
+GET http://localhost:3000/orders/27.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA1ODI2NDZ9.mnengQ0Iiv4sF-_a0RP1-BHFLO_jaGSUR4h3B1Ct0EQ
 
 #index 
 ###
 GET http://localhost:3000/orders.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDgwNzE1NjR9.Va-YLPc0V1F_S1hAQmspi6SB8AaDW3Dpx1Ii7b6ICVU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA1ODI2NDZ9.mnengQ0Iiv4sF-_a0RP1-BHFLO_jaGSUR4h3B1Ct0EQ
+
+
+
+#carted_products
+#create
+###
+POST http://localhost:3000/carted_products.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA2NjQ0MTN9.z_Ims7fbTT-lAc-dn6ra0-hMuPLuuvg6KRgeQZsp3sU
+Content-Type: application/json
+
+{
+
+  "product_id": 15,
+  "quantity": 20
+
+}
