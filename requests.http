@@ -17,9 +17,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTA1ODA0O
 content-type: application/json
 
 {
-  "name": "IPA",
+  "name": "new beer",
   "price": 12,
-  "description": "HEAVY IPA",
+  "description": "HEAdasdfVY IPA",
   "quantity" : 45,
   "supplier_id": 2,
   "images" : [
@@ -29,19 +29,18 @@ content-type: application/json
 
 #delete
 ###
-DELETE http://localhost:3000/products/30.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTA1ODEyODB9.Wf2EiV9i8lTX0iZNtvEAx4k0HdY_A2MpD3iRDCXCxJo
-
+DELETE http://localhost:3000/products/33.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTE4NjM4MTZ9.fGEp3gmvRV3Z5enTa1GC9IvTXckE3k4hZaJ-FZ_l90g
 
 #update
 ###
-PATCH http://localhost:3000/products/31.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTA1ODEyODB9.Wf2EiV9i8lTX0iZNtvEAx4k0HdY_A2MpD3iRDCXCxJo
+PATCH http://localhost:3000/products/28.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTE4NTc2NzN9.2bNUz4yZrhEibToAXBrzSfh3RSepCO42kT9i4UrmU-M
 content-type: application/json
 
 {
   "new_name": "Racer 5",
-  "new_price": 5,
+  "new_price": 6,
   "new_description": "a good cali ipa"
 }
 
@@ -122,7 +121,7 @@ Content-Type: application/json
 #create
 ###
 POST http://localhost:3000/orders.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA2NjQ0MTN9.z_Ims7fbTT-lAc-dn6ra0-hMuPLuuvg6KRgeQZsp3sU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTE4NTc2NzN9.2bNUz4yZrhEibToAXBrzSfh3RSepCO42kT9i4UrmU-M
 
 
 
@@ -130,12 +129,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA2NjQ0M
 #show
 ###
 GET http://localhost:3000/orders/27.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA1ODI2NDZ9.mnengQ0Iiv4sF-_a0RP1-BHFLO_jaGSUR4h3B1Ct0EQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTE4NTc2NzN9.2bNUz4yZrhEibToAXBrzSfh3RSepCO42kT9i4UrmU-M
 
 #index 
 ###
 GET http://localhost:3000/orders.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA1ODI2NDZ9.mnengQ0Iiv4sF-_a0RP1-BHFLO_jaGSUR4h3B1Ct0EQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTE4NTc2NzN9.2bNUz4yZrhEibToAXBrzSfh3RSepCO42kT9i4UrmU-M
 
 
 
@@ -143,7 +142,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA1ODI2N
 #create
 ###
 POST http://localhost:3000/carted_products.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTA2NjQ0MTN9.z_Ims7fbTT-lAc-dn6ra0-hMuPLuuvg6KRgeQZsp3sU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTE4NTc2NzN9.2bNUz4yZrhEibToAXBrzSfh3RSepCO42kT9i4UrmU-M
 Content-Type: application/json
 
 {

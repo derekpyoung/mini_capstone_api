@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_admin, only: [:update, :create, :destroy]
-  #belongs_to :orders
+  # before_action :authenticate_admin, only: [:update, :create, :destroy]
+  # belongs_to :orders
   def show
     id = params[:id].to_i
     @product = Product.find_by(id: id)
@@ -19,22 +19,27 @@ class ProductsController < ApplicationController
                           description: params[:description],
                           quantity: params[:quantity], 
                           supplier_id: params[:supplier_id])
+                          p params[:images]
     if product.save
+      
       params[:images].each do |image|
-        image = Image.new(url: image, product_id: product.id)
-        image.save 
+      image = Image.new(url: image, product_id: product.id)
       end 
+      image.save  
       render json: product.as_json
+      
+      
     else 
       render json: {errors: product.errors.full_messages}, status: :unprocessable_entity
-    end 
+     end 
+   
   end 
 
   def destroy 
     id = params[:id]
     product = Product.find_by(id: id)
     product.delete
-    render json: {message: "product removed."}
+    render json: "product removed."
  
   end 
 
