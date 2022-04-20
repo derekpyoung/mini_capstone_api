@@ -13,18 +13,22 @@ GET http://localhost:3000/products/15.json
 #create
 ###
 POST http://localhost:3000/products.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTA1ODA0OTV9.Nqj15bzsdcUk3e0OpRYXGtNRgdjh0zvw3E-zG5QEV2w
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NTE5NDU5NjB9.oJECJSPrhL34mwefq3Z3q67MEZSsJa2rB0sjPu416Vc
 content-type: application/json
 
 {
-  "name": "new beer",
-  "price": 12,
-  "description": "HEAdasdfVY IPA",
-  "quantity" : 45,
+   "name": "beeeeeeeeer",
+  "price": 25,
+  "description": "lots of beer",
+  "images": [
+    "https://upload.wikimedia.org/wikipedia/commons/0/01/Brick.jpg"
+    
+  ],
   "supplier_id": 2,
-  "images" : [
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.pKnPQFE7c__WtDWh18ml1wAAAA%26pid%3DApi&f=1", "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ZQf2rHaVae8Aa_GpnndGCAEsCo%26pid%3DApi&f=1"
-  ]
+  "quantity": 5
+
+  
+ 
 }
 
 #delete

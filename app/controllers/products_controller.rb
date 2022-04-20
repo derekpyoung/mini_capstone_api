@@ -13,27 +13,26 @@ class ProductsController < ApplicationController
     render template: "products/index"
   end 
   
-  def create 
-    product = Product.new(name: params[:name], 
-                          price: params[:price],
-                          description: params[:description],
-                          quantity: params[:quantity], 
-                          supplier_id: params[:supplier_id])
-                          p params[:images]
+  def create
+    product = Product.new(
+      name: params[:name], 
+      description: params[:description],
+      price: params[:price],
+      supplier_id: params[:supplier_id],
+      quantity: params[:quantity]
+    )
+    
     if product.save
-      
       params[:images].each do |image|
-      image = Image.new(url: image, product_id: product.id)
-      end 
-      image.save  
+        image = Image.new(url: image, product_id: product.id)
+        image.save
+      end
       render json: product.as_json
-      
-      
-    else 
+    else
       render json: {errors: product.errors.full_messages}, status: :unprocessable_entity
-     end 
-   
-  end 
+    end
+    
+  end
 
   def destroy 
     id = params[:id]
