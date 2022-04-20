@@ -6,7 +6,6 @@
   total: @product.total,
   description: @product.description,
   is_discounted?: @product.is_discounted?,
-  quantity: @product.quantity,
   images: @product.images,
   supplier_id: @product.supplier_id,
   supplier: @product.supplier,
